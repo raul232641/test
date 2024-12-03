@@ -1,0 +1,1495 @@
+udhcpc;mount -t nfs -o nolock 192.168.201.11:/tpsa112/usrhome/weishun.chen/work/ali/nfs /home/ftp
+mount -t vfat -o fmask=0000,dmask=0000,utf8 /dev/sda1 /mnt/usb/sda1 
+
+
+mkdir -p /mnt/nfs;mount -t nfs -o nolock 192.168.201.13:/tpsa132/usrhome/weishun.chen/work/ali/nfs /mnt/nfs
+
+mount -t nfs -o nolock 192.168.201.11:/tpsa112/usrhome/weishun.chen/work/ali/nfs /mnt/usb/sda1
+
+LXC:
+
+mount -t nfs -o nolock 192.168.201.11:/tpsa112/usrhome/weishun.chen/work/ali/linux_8.x_M3538_NAGRA/output/target/usr/share/lxc /usr/share/lxc
+
+
+udhcpc;mount -t nfs -o nolock 192.168.201.11:/tpsa112/usrhome/weishun.chen/work/ali/linux_7.x_M3721_IRDETO_20190509/output_upg/images_upg/dvtsuit/DVT_FILES /home/ftp
+udhcpc;mount -t nfs -o nolock 192.168.201.11:/tpsa112/usrhome/weishun.chen/work/ali/linux_7.x_M3721_IRDETO/output_upg/images_upg/dvtsuit/DVT_FILES /home/ftp
+
+udhcpc;mount -t nfs -o nolock 192.168.201.11:/tpsa112/usrhome/weishun.chen/work/ali/nfs/IRDETO/DVT_FILES_20190604 /home/ftp
+
+udhcpc;mount -t nfs -o nolock 192.168.201.11:/tpsa112/usrhome/weishun.chen/work/ali/linux_7.x_M3721_IRDETO_7.6.0.6/output_upg/images_upg/dvtsuit/DVT_FILES /home/ftp
+
+
+mount -t nfs -o nolock 192.168.201.11:/tpsa112/usrhome/weishun.chen/work/ali/linux_7.x_M3721_IRDETO_7.6.0.6/output/target/usr/bin /usr/bin
+mount -t nfs -o nolock 192.168.201.11:/tpsa112/usrhome/weishun.chen/work/ali/linux_7.x_M3721_IRDETO_7.6.0.6/output/target/usr/lib /usr/lib
+
+
+mount -t nfs -o nolock 192.168.201.13:/tpsa132/usrhome/weishun.chen/work/ali/linux_10.x/output/target/usr/bin /usr/bin
+mount -t nfs -o nolock 192.168.201.13:/tpsa132/usrhome/weishun.chen/work/ali/linux_10.x/output/target/usr/lib /usr/lib
+
+mount -t nfs -o nolock 10.8.1.169:/zhsa092/NFS/nestor /home/ftp
+
+=> ird_ikey  enc dtb boot_logo bootmedia kernel
+>>>>>>>> Encrypt dtb[len(with ubohdr):0xf840] success!
+>>>>>>>> Encrypt boot_logo[len(with ubohdr):0xec39] success!
+>>>>>>>> Encrypt bootmedia[len(with ubohdr):0x5ef9fd] success!
+>>>>>>>> Encrypt kernel[len(with ubohdr):0x356a51] success!
+
+MANKEY
+#define ERROR_CODE_RESIDENT_KEY_INVALID                         0x21     
+DEVKEY
+#define ERROR_CODE_DL_KEY_INCORRECT_KEY_VER                     0x41  
+VAR
+#define ERROR_CODE_DL_KEY_INCORRECT_SYS_ID                      0x40   
+
+
+cat /proc/self/mountinfo | grep usb
+mount --make-shared /mnt/usb/sdb1/ /home/default/.local/share/lxc/a/rootfs/mnt/usb/sdb1
+mount -t vfat /dev/sda1 /mnt/usb/sda1 -o rw,uid=1000,gid=1000
+mount --make-shared -o uid=100000,gid=100000 /mnt/usb/sda1/ /home/default/.local/share/lxc/a/rootfs/mnt/usb/sda1
+
+brctl addbr lxcbr0
+brctl addif lxcbr0 eth0
+brctl show
+
+iptables -t nat -L
+
+pri
+iptables -t nat -A PREROUTING -i eth0 -p tcp -d 10.198.194.206 --dport 8087 -j DNAT --to-destination 10.0.3.162:8087
+
+unpri
+iptables -t nat -A PREROUTING -i eth0 -p tcp -d 10.198.194.206 --dport 8087 -j DNAT --to-destination 10.0.3.163:8087
+
+iptables -t nat -A PREROUTING -i eth0 -p tcp -d 10.198.194.193 --dport 8087 -j DNAT --to-destination 10.0.3.163:8087
+
+iptables -t nat --line-numbers -L
+iptables -t nat -D PREROUTING 1
+
+killall sys_mainpage; cat /dev/zero > /dev/fb0; dvt_app
+
+LNB 9750
+tuning 11450
+symbol 27500
+
+
+aui_test
+stream (DVB-S)
+play 0,0,3450,27500,2001,2002,2001,1,2,0,H
+play 0,0,3450,27500,110,120,120,10,12,0,H
+stream_type:https://en.wikipedia.org/wiki/Program-specific_information#Elementary_stream_types
+
+**************5150 - channel = 3450*****************
+
+stream (DVB-T)
+play 1,2,474000,8,1029,1028,1029,0,0,0,1
+
+
+misc 
+1
+
+pvr
+init
+attach /mnt/usb/sda1
+up
+stream
+play 0,0,3450,27500,110,120,120,10,12,0,H
+up
+pvr
+record record1,1,110,3,1,120,2,110,0
+play 0,/mnt/usb/sda1/ALIDVRS2/record1
+
+pvr
+init
+attach /mnt/usb/sda1
+up
+stream
+play 0,0,3450,27500,110,120,120,10,12,0,H
+up
+pvr
+timeshift tms,1,110,3,1,120,2,120,0
+
+mp
+test_all_mp
+http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8
+
+dog
+5 0,3000000
+
+
+vi /etc/inittab
+ttyS0::respawn:/sbin/getty -L ttyS0  115200 vt100
+https://blog.csdn.net/dao891230/article/details/7298831
+# print current acoount UID
+id 
+
+vi /etc/shadow
+root:$1$N0Io6y7.$KR2.U2agb8Hl202apgr4j/:10933:0:99999:7:::
+default:$1$N0Io6y7.$KR2.U2agb8Hl202apgr4j/:10933:0:99999:7:::
+
+/tpsa112/usrhome/weishun.chen
+\\192.168.201.11\tpsa112\weishun.chen
+
+make <package>-dirclean
+make <package>-rebuild
+make <package>-reconfigure
+make post-build
+make linux-menuconfig
+make menuconfig
+
+
+setcap cap_chown,cap_setgid,cap_setuid+ep /bin/bash
+cap_chown=eip是将chown的能力以cap_effective(e),cap_inheritable(i),cap_permitted(p)
+setcap cap_sys_rawio+eip /usr/bin/aui_testbench
+
+setcap cap_sys_rawio,cap_setgid,cap_setuid+ep /bin/bash
+setcap cap_setfcap 
+
+gcc -EL
+
+
+https://www.cnblogs.com/iamfy/archive/2012/09/20/2694977.html
+
+git clone git@zhsa01:ibu-sdk/buildroot.git
+git checkout speaker-tds-master 
+make alim3722_alicpu_speaker_defconfig
+make all
+
+
+git clone git@zhsa01:ibu-sdk/buildroot.git
+git checkout 7.4
+make alim3721_ddk_c1800_nand_defconfig && make all && make U=1 alim3721_ddk_c1800_nand_ota_defconfig && make U=1 all
+
+
+git checkout 7.5.0.25 -b test
+git checkout -b test v0.1.0
+
+// 還原成遠端的倉庫
+git reset --hard origin/master
+
+// 查看遠端的log
+git log origin/$BRANCH
+
+git remote -v
+git remote set-url origin git://192.168.201.1/aosp/develop/platform/frameworks/av
+
+// local branch
+git branch 
+// remote
+git branch -r
+// local + remote
+git branch -a
+
+git log --oneline
+
+// check current tag/branch
+git log --d
+
+// 打補丁前check
+git apply --check cap.patch
+
+
+./ali-postbuild-BL4.4.0-20181024/c3702/c1800a/general/general_postbuild.sh
+
+rm -rf output/target
+find output/ -name ".stamp_target_installed" |xargs rm -rf 
+remove build/.root will force to reinstall skeleton
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://apollo2.irdetoaccess.com/scripts/irdeto_cdo.cfg/php.exe/enduser/acct_login.php
+
+User name : summer.xia
+password  : irdetoali
+
+
+gdb
+// list all break point
+i b
+// list all share library 
+i share
+
+// run 
+gdb --args lxc-start -n a4
+
+// disable break point
+disable 1
+
+// add break point 
+b lxccontainer.c:934
+
+save breakpoints <filename>
+source <filename>
+gdb --args aui_testbench --network
+
+c - next point
+s - enter function
+n - next line
+
+set auto-load safe-path /lib
+
+## show all process info
+info inferior
+
+## switch process
+inferior <infer number>
+
+## show all thread info
+info thread
+
+## switch thread
+thread <thread number>
+
+## print pid
+print getpid()
+
+
+x/256x p->data
+
+## default say "y" for source breakpoint
+set breakpoint pending on 
+
+## show current process mode
+show follow-fork-mode
+
+## only watch child process (default parent process)
+set follow-fork-mode child
+
+## only watch parent process
+set follow-fork-mode parent
+
+set detach-on-fork off
+ 
+generate-core-file
+ls -
+owner group non-group
+
+owner group
+
+killall sys_mainpage; cat /dev/zero > /dev/fb0; dvt_app&
+
+export GST_DEBUG_DUMP_DOT_DIR=/tmp
+export AUI_LOG_LEVEL=6
+
+gst-launch-1.0 filesrc location=/home/ftp/bug108474/34_04_22_003.mkv ! matroskademux name=dmx dmx.video ! h265parse ! auivideosink
+
+
+
+
+
+一定要先check一下spare area的第6個byte是否是0xff，如果是就證明這是一個好塊，可以擦除；如果是非0xff，那麼就不能擦除
+
+
+
+export HOME=/usr/var/lib/lxc_unpri/default
+lxc-stop -n aui_testbench_unpri
+lxc-start -n aui_testbench_unpri
+
+mount --make-shared -o uid=1000,gid=1000 /mnt/usb/sda1/ /usr/var/lib/lxc_unpri/default/.local/share/lxc/aui_testbench_unpri/rootfs/mnt/usb/sda1/
+
+
+echo "7 7 7 7" > /proc/sys/kernel/printk
+
+
+若已經有編好的image，要修改為加密boot loader的方式，如下:
+6.x
+
+# Enable encrypted bootloader
+find . -type f -name '.config' -exec sed -i 's/# BR2_ENCRYPT_ENABLE is not set/BR2_ENCRYPT_ENABLE=y/ig' '{}' \;
+make olddefconfig
+make bl-postbuild-C3505-rebuild all
+
+#disable encrypted bootloader
+find . -type f -name '.config' -exec sed -i 's/BR2_ENCRYPT_ENABLE=y/# BR2_ENCRYPT_ENABLE is not set/ig' '{}' \;
+
+7.x
+
+# Enable encrypted bootloader
+find . -type f -name '.config' -exec sed -i 's/BR2_TARGET_GENERICFS_P1_ENCRYPT_BY_UK=\"ABL_AES_NONE\"/BR2_TARGET_GENERICFS_P1_ENCRYPT_BY_UK=\"ABL_AES_FPK\"/ig' '{}' \;
+make olddefconfig
+make post-build all
+
+
+[dropbear]
+cd output/target/etc
+ln -s /tmp dropbear
+make all
+
+dropbearkey -t rsa -f dropbear_rsa_host_key
+dropbearkey -t dss -f dropbear_dss_host_key
+dropbear -B -p 7777
+
+[remove environment variable]
+unset ALISPVR_UNITEST
+
+
+[readelf debug info]
+readelf --debug-dump=info <binary-executable> | grep "\.c" | awk '{print $8}'
+/tpsa112/usrhome/weishun.chen/work/ali/linux_master_RIL_6.10.0.13/output/host/usr/bin/mips-mti-linux-gnu-readelf --debug-dump=info <binary-executable> | grep "\.c" | awk '{print $8}'
+
+
+[6.x kernel debug]
+echo "level=1" > /proc/alivideo/debug0
+echo 7 > /proc/sys/kernel/printk
+
+[VIM highlight search str]
+set hlsearch
+
+
+static void *time_print_pthread(void *arg)
+{
+    aui_hdl pvr_handler = (aui_hdl)arg;
+    unsigned int duration = 0;
+    while(1)
+    {
+        aui_pvr_get(pvr_handler, AUI_PVR_PLAY_TIME_S, &duration, 0, 0);
+        AUI_PRINTF("pvr play time %d\n", duration);
+        sleep(1);
+    }
+    return NULL;
+}
+
+int time_monitor_start(pthread_t *ptid, aui_hdl hdl)
+{
+    int ret;
+    pthread_attr_t attr;
+    pthread_attr_init(&attr);
+    ret = pthread_create(ptid, &attr, time_print_pthread, (void *)hdl);
+    pthread_attr_destroy(&attr);
+    if (ret != 0)
+    {
+        AUI_PRINTF("pthread create error\n");
+        return -1;
+    }
+    return 0;
+}
+int time_monitor_stop(pthread_t ptid)
+{
+        pthread_cancel(ptid);
+        pthread_join(ptid, NULL);
+    return 0;
+}
+
+	pthread_t ptid;
+    time_monitor_start(&ptid, aui_pvr_handler);
+
+
+
+
+[objdump]
+[dump specific section]
+objdump -s -j .eh_frame test.o	
+## check toochain version
+objdump -s --section .comment test.o
+
+
+[readelf]
+## read all section 
+readelf -a test.o
+## dump eh_frame section binary content
+readelf -x .eh_frame test.o
+## parser eh_frame debug info
+readelf --debug-dump=frames test.o
+
+[ar]
+## check what is combination of test.a 
+ar -tv test.a
+## decompress library
+ar -x test.a
+
+[see debug 8.x]
+//depot/Documents/S4000/internal/release/how_to_trace_logging_with_new_debug_framework.docx
+1. make menuconfig -> Target Option -> Trace Secure Software [*]
+make linux-reconfigure alisee-reconfigure all
+
+
+mount -t debugfs none /sys/kernel/debug
+cd /sys/kernel/debug/alilog/
+while true;do cat /proc/alilog ;usleep 100 ;done &
+cat modules
+echo 3 > enable_see_log
+echo 6 > enable_see_log
+echo 7 > enable_see_log
+echo 4 > enable_see_log
+echo 5 > set_see_level
+
+cd /proc/aliavsync/
+echo debuglevel=0x0001 > debuglevel
+aui_mp_test -f file:///mnt/usb/sda1/33_04_17_004_M40_A2_1920x912p\ 2012hm.mov
+
+2. see/src/see/m36f/sys_config_3602.h SEE_PRINTF_ON跟CONFIG_VDEC_DEBUG就可以 
+./see/src/lld/decv/base/vdec_dbg.h  CONFIG_VDEC_DEBUG
+3. echo "level=1" > /proc/alivideo/debug0
+
+
+[suffix]
+#define SUFFIX(a) #a
+#define FILE_NAME(a) "test.mp4" SUFFIX(a)
+#define FILE_SUFFIX(a) "/mnt/usb/sda1/" FILE_NAME(a)
+ fopen(FILE_SUFFIX(), "w+");
+ fopen(FILE_SUFFIX(.video0), "w+");
+
+[vol adjustment]
+nmpsystem_sample vol 100
+
+[grep recursive]
+grep -lr --include='*.c' search-pattern . 
+
+
+[enable alici]
+find . -type f -name '.config' -exec sed -i 's/# BR2_PACKAGE_ALICI is not set/BR2_PACKAGE_ALICI=y/ig' '{}' \;
+make olddefconfig
+find . -type f -name '.config' -exec sed -i 's/# BR2_PACKAGE_ALICI_AUI is not set/BR2_PACKAGE_ALICI_AUI=y/ig' '{}' \;
+make olddefconfig
+find . -type f -name '.config' -exec sed -i 's/# BR2_PACKAGE_ALICI_AUI_PVR is not set/BR2_PACKAGE_ALICI_AUI_PVR=y/ig' '{}' \;
+make olddefconfig
+find . -type f -name '.config' -exec sed -i 's/# BR2_PACKAGE_ALICI_AUI_NEW_MP is not set/BR2_PACKAGE_ALICI_AUI_NEW_MP=y/ig' '{}' \;
+make olddefconfig
+find . -type f -name '.config' -exec sed -i 's/# BR2_PACKAGE_ALICI_DRV is not set/BR2_PACKAGE_ALICI_DRV=y/ig' '{}' \;
+make olddefconfig
+
+rm -rf aui aliplatform
+
+
+[alici disable log]
+set_log_level = {'method':'SYSTEM_LOG_LEVEL', 'module':'ALL', 'level':'ERR','timeout': 30}
+cmd.exe(obj, set_log_level)
+
+
+
+[auto run script]
+/usr/mnt_app/auto_test.sh
+
+[alispvr parttion info]
+_pvr_mgr_fpartition_info
+
+
+[enable video debug log for 6.x]
+echo 7 > /proc/sys/kernel/printk
+echo "level=1" > /proc/alivideo/debug0
+
+    VDEC_ERROR_NODATA    = 0x0001,    //!<No data error
+    VDEC_ERROR_HARDWARE  = 0x0002,    //!<Decode error
+    VDEC_ERROR_SYNC      = 0x0004,    //!<Sync error
+    VDEC_ERROR_FRAMEDROP = 0x0008,    //!<Frame drop
+    VDEC_ERROR_FRAMEHOLD = 0x0010,    //!<Frame hold
+    VDEC_ERROR_GIVEUPSEQ = 0x0020,    //!<Give up sequence
+    VDEC_ERROR_INVDATA   = 0x0040,    //!<Invalid data
+	
+[GPIO MAPPING TABLE]
+mount -t debugfs none /sys/kernel/debug/
+cd /sys/kernel/debug/
+cd pinctrl/1808b000.pinctrl/
+cat pins 
+
+[standby LED GPIO-RC10 gpio number202]
+
+[dhclient]
+/var/lib/dhcp/	
+
+kill -SIGUSR1 `cat /var/run/udhcpc.pid`
+
+[bootarg in NFS]
+root=/dev/nfs rw nfsroot=10.14.1.201:/insa012/usrhome/amar.chand/codebase/projects/mcs/git_8.3.0.24/256_config_DDR/fta/buildroot_NFS/output/target,rsize=1024,wsize=1024 init=/init ip=10.14.1.171:10.14.1.201:10.14.1.254:255.255.255.0::eth0:off
+
+
+[IRDETO DTH PATCH]
+./qt/qt-build-all-m3538-ird-mw-v30-xtraview-internal.sh
+
+cp ./qt/patch_skw_board_irdmw_v30_xtraview/*.patch  ./package/ali/dts/
+cp ./qt/patch_skw_board_irdmw_v30_xtraview/*.config ./board/ali/c3507-demo/
+make alim3538_ddk_c1800_512ddr_spinand_ird_mw_v30_wo_mp_pvr_defconfig
+make all
+
+[sed] [specified pattern]
+sed -i "/IRD_CFLAGS=/ s/.$//" config-driver.mak
+sed -i "/IRD_CFLAGS=/ s/$/ -DHS62B\"/g" config-driver.mak
+
+
+[irdeto ota command]
+udhcpc;mount -t nfs -o nolock 192.168.201.11:/tpsa112/usrhome/weishun.chen/work/ali/linux_8.x_IRD_OTA_ALIDEMO_BOARD_TEST/output_upg/images_upg/dvtsuit/DVT_FILES /home/ftp
+
+udhcpc;mount -t nfs -o nolock 192.168.201.11:/tpsa112/usrhome/weishun.chen/work/ali/nfs /home/ftp
+
+cp /home/ftp/keys/MANKEY.CD5 /mnt/usb/sda1/ALi_update.CD5
+cp /home/ftp/keys/DEVKEY.KD5 /mnt/usb/sda1/ALi_update.CD5
+cp /home/ftp/VAR_UPD.VD5 /mnt/usb/sda1/ALi_update.CD5
+cp /home/ftp/WORK005.CD5 /mnt/usb/sda1/ALi_update.CD5
+
+[list nedd library for executable]
+readelf -d IDwayJ.exe | grep "NEED"
+
+[stop ird_mw app]
+killall nativeHelper IDwayJ.exe
+
+[Ftool set foreground]		
+this->SetWindowPos( &CWnd::wndTopMost, 0, 0, 0, 0, SWP_NOSIZE    ); 
+this->BringWindowToTop( );
+this->SetForegroundWindow( ); 
+
+[IRD_MW log cmd]
+./IDwayJ.exe -idwLogDrivers VBI -idwLogLevel ERROR
+
+[enable kernel dev_dbg() or pr_debug()]
+adding the following code in XXX.c
+
+#define DEBUG           /* Enable dev_dbg */
+
+
+[core-dump]
+ulimit -c unlimited
+mkdir -p /tmp/usb_
+echo "/tmp/usb_$usb_detect/core.%e.%p.%h.%t" > /proc/sys/kernel/core_pattern
+
+gdb [exec file] [core file]
+
+[dd]
+dd if=/dev/zero of=/tmp/output bs=1M count=1K;
+
+
+[ALI spec]
+//depot/Documents/S0000/S2000/activities/sdk/releases/8.3.x/8.3.0.74/
+//depot/Documents/S0000/S2000/qms/processes/document-transfer/release_doc.xlsx
+
+[UBI script path]
+1. /tpsa112/usrhome/weishun.chen/work/ali/linux_8.x_IRD_MW_OTA_ALIDEMO_BOARD/fs/S00mnt-userfs.ubi.template
+S00mnt-usr.mnt_app.ubi
+2. fs/ubifs/ubinize.cfg
+
+
+[BIT ARRAY]: total: 4G bytes--> 0x0040_0000 個 bytes
+data len: 1byte
+
+          [0] [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]                      
+0000_0000 00  00  00  00  00  00  00  00  00  00  00   00   00   00   00   00 
+0000_0010
+0000_0020
+.
+.
+.
+003F_FFF0
+0040_0000
+
+data len: 4byte
+
+						[0]  [] []  []  [1] []  [] []   [2]  []  []  []   [3]  []   []   []
+0000_0000 	0000_0000	00  00  00  00  00  00  00  00  00  00  00   00   00   00   00   00 
+0000_0010	0000_0004
+0000_0020	0000_0008
+0000_0030	0000_000C
+0000_0040	0000_0010
+0000_0050	0000_0014
+0000_0060	0000_0018
+0000_0070	0000_001C
+0000_0080	0000_0020
+0000_0090	0000_0024
+0000_00A0	0000_0028
+0000_00B0	0000_002C
+0000_00C0	0000_0030
+0000_00D0	0000_0034
+0000_00E0	0000_0038
+0000_00F0	0000_003C
+0000_0100	0000_0040
+.
+.
+.
+003F_FFF0	000F_FFFC
+0040_0000	0010_0000
+
+data len: 8byte
+
+						[0] []  []  []  []  []  []  []  [1] []  []   []   []   []   []   []
+0000_0000 	0000_0000	00  00  00  00  00  00  00  00  00  00  00   00   00   00   00   00 
+0000_0010	0000_0002
+0000_0020	0000_0004
+0000_0030	0000_0006
+0000_0040	0000_0008
+0000_0050	0000_000A
+0000_0060	0000_000C
+0000_0070	0000_000E
+0000_0080	0000_0010
+0000_0090	0000_0002
+0000_00A0	0000_0004
+0000_00B0	0000_0006
+0000_00C0	0000_0008
+0000_00D0	0000_000A
+0000_00E0	0000_000C
+0000_00F0	0000_000E
+0000_0100	0000_0010
+.
+.
+.
+003F_FFF0	0007_FFFE
+0040_0000	0008_0000
+
+
+data len: 16bytes
+						[0] []  []  []  []  []  []  []  []  []  []   []   []   []   []   []
+0000_0000 	0000_0000	00  00  00  00  00  00  00  00  00  00  00   00   00   00   00   00 
+0000_0010	0000_0001
+0000_0020	0000_0002
+0000_0030	0000_0003
+0000_0040	0000_0004
+0000_0050	0000_0005
+0000_0060	0000_0006
+0000_0070	0000_0007
+0000_0080	0000_0008
+0000_0090	0000_0009
+0000_00A0	0000_000A
+0000_00B0	0000_000B
+0000_00C0	0000_000C
+0000_00D0	0000_000D
+0000_00E0	0000_000E
+0000_00F0	0000_000F
+0000_0100	0000_0010
+.
+.
+.
+003F_FFF0	0003_FFFF
+0040_0000	0004_0000
+
+[enable SEE log]
+http://project.alitech.com/projects/lnx_prj/wiki/Nick_Chiu#SEE-crash-simply-problem-addressing
+
+[get DDR clock rate]
+读0x1808d810[19:16]
+
+**1600MHZ **
+devmem 0x1808d810
+==> 0x000C0C00
+
+***1866MHZ***
+devmem 0x1808d810
+==> 0x000E0E00
+
+0x1808d810[19:16] = 1100'b = 1600MHZ
+0x1808d810[19:16] = 1110'b = 1866MHZ
+
+
+
+## compile C3531 (U5) TDS on 192.168.201.11
+CODE copy from //depot/IC_Support/C3531/Elephant/
+CODE copy to 192.168.201.11
+
+cd Elephant
+find . -type f -print0 | xargs -0 dos2unix
+find -name *.mk -print0 | xargs -0 chmod 777 
+find -name *.def -print0 | xargs -0 chmod 777 
+find -name *.sh -print0 | xargs -0 chmod 777 
+find -name makefile -print0 | xargs -0 chmod 777 
+find -name *.a -print0 | xargs -0 chmod 777 
+find -name *.h -print0 | xargs -0 chmod 744
+find -name Makefile -print0 | xargs -0 chmod 777 
+
+cd Elephant/prj/app/demo/combo/sabbat_dual
+dos2unix *.sh 2>/dev/null
+dos2unix ../../../../../ddk/* 2>/dev/null
+chmod 777 *.sh
+./getpath.sh
+make path config_3531 new sdk_clean sdk product_7z
+make path config_3531 sdk product_7z
+
+
+## compile M3531 VMX TDS solution
+CODE copy from //depot/Customer/SDK4.0/SDK4.0ba.20.0/3507_20_3_VMX/
+CODE copy to 192.168.201.11
+
+cd Elephant/prj/app/demo/combo/aui_demo
+chmod 766 -R *
+dos2unix *.sh 2>/dev/null
+dos2unix ../../../../../ddk/* 2>/dev/null
+chmod 777 *.sh
+make path aui_sync_3507 config_3507 new sdk_clean sdk  aui bc product_7z
+
+
+## weak alias
+//main.c
+
+#include <stdio.h>
+void print_hello(const char *s) __attribute__((weak, alias("__weak_hello")));
+void print_world(const char *s) __attribute__((weak, alias("__weak_hello")));
+
+void __weak_hello(const char *)
+{
+	printf("__weak_hello: %s\n", s);
+}
+
+void print_hello(const char *s)
+{
+	printf("print_hello: %s\n", s);
+}
+
+int main(void)
+{
+	print_hello("main test print_hello");
+	print_world("main test print_world");
+	return 0;
+}
+//main.c end
+
+// 後面function, 沒有implementation 的話，就用前面的function
+ABL_WEAK_ALIAS(__abl_app_show_logo_v2, abl_app_show_logo);
+
+#define _ABL_WEAK_ALIAS(name, aliasname) \
+  extern __typeof (name) aliasname __attribute__ ((weak, alias (#name)))
+
+  
+## generate map file
+normal:
+gcc -o hello hello.c
+
+adding linker parameter:
+gcc -o hello hello.c -Wl,-Map=hello.map
+
+-Wl 意思是 告知後面接linker 的parameter 
+
+## diassembly code
+
+// generate hello.o
+gcc -c hello.c
+
+// generate hello.out and hello.map
+ld hello.o -o hello.out -Map hello.map -T lscript.ld
+
+// generate disassembly code hello.dis
+objdump -D hello.out > hello.dis
+
+
+## run hdmicec execution file for Linux solution
+hdmicec_sample -s 0 > /tmp/log.txt 2>&1 &
+
+## compile libhdmicec
+find . -type f -name '.config' -exec sed -i 's/# BR2_PACKAGE_LIBHDMICEC is not set/BR2_PACKAGE_LIBHDMICEC=y/ig' '{}' \;
+make olddefconfig
+
+make all
+
+
+
+[standby]
+1. 採用 STR (suspend to ram), DDR 依然運作, 將suspend 之前的資料,狀態, 存入 ＤＤＲ中 (DDR須具備DDR-retention,只能夠在低功耗時運作)
+＋
+MCU 功能, 可以被喚醒
+
+2. 採用 STR (suspend to ram), DDR 依然運作, 將suspend 之前的資料,狀態, 存入 ＤＤＲ中
+＋
+MCU 功能, 可以被喚醒
+
+ 
+
+[HDMI deep color]
+PP: pixel packing phase
+
+[mask interrupt]
+it means 不收INT, 設 1
+
+[unmask interrupt]
+it means 收INT, 設 0
+
+[osal_flag_wait]
+int flgptn=0;
+// output:
+// flgptn - 回傳哪個bit 被立起來了
+// input:
+// flgid - 即osal_flag_create() 的時候回傳的fd
+// waitflag - 要觀看哪些bit被立起來
+// twf_mode - OSAL_TWF_ORW：只需要某個bit被立起來,才可解除wait
+//            OSAL_TWF_ANDW: 必須全部bit都被立起來,才可解除wait
+//            TWF_CLR: 只喚醒最高優先級的task, 且flag會被自動清掉 ,不用再額外做osal_flag_clear(flgid, waitflag)
+//            沒有 TWF_CLR: 喚醒所有的task
+// timeout - timeout 時間
+osal_flag_wait(&flgptn, flagid, waitflag, twf_mode, timeout)
+
+
+[wearable power/clock manager for RT1060]
+https://blog.csdn.net/Oushuwen/article/details/109095833
+
+[mount debugfs]
+mount -t debugfs none /sys/kernel/debug
+
+[bind mmc_test]
+kernel:
+enable CONFIG_MMC_BLOCK=y
+enable CONFIG_MMC_TEST=y
+enable CONFIG_DEBUG_FS=y
+enable CONFIG_DEBUG_KERNEL=y
+
+board:
+1. power on
+2. insert sd card
+3. cd /sys/bus/mmc/drivers/
+4. ls
+mmcblk
+5. insmod mmc_test.ko
+6. ls 
+mmc_test  mmcblk
+7. cd mmcblk
+8. echo mmc1:b368 > unbind
+***
+記得 要是 mmc1:b368  , 而不是  mmc1\:b368/ , 因為這樣會有error message
+# echo mmc1\:b368/ > unbind
+sh: write error: No such device
+***
+
+9. cd ../mmc_test
+echo mmc1:b368 > bind
+
+10. mount -t debugfs none /sys/kernel/debug
+11. cd /sys/kernel/debug/mmc1/mmc1:b368
+12. cat testlist
+13. echo 1 > test 
+
+[print debug message]
+dmsg -c
+
+
+
+
+
+
+[HDMI hdcp enable]
+hdcp on,/usr/mnt_app/hdcp_unify_sw_key.bin
+hdcp on,/mnt/usb/sda1/hdcp_unify_sw_key.bin
+hdcp on,/mnt/usb/sda1/hdcp_unify_ce_key.bin
+hdcp on,/mnt/usb/sda1/empty_hdcp_CNX.key
+hdcp on,/mnt/usb/sda1/hdcp22_ce_key.bin
+hdcp on,/mnt/usb/sda1/hdcp22_sw_key.bin
+hdcp on,/mnt/usb/sda1/123
+
+
+
+[aui_test script]
+fixed file name: sample_code_auto_test
+/usr/mnt_app/sample_code_auto_test
+
+內容:
+stream
+play 0,0,3450,27500,205,317,205,1,1,0
+up
+pvr
+init
+attach /mnt/usb/sda1
+record rec1,1,205,1,1,317,1,205,0
+
+
+[enable Linux HDMI LOG]
+echo 1 > /sys/bus/platform/devices/1802a000.hdmi/debug_log_onoff
+echo 0 > /sys/bus/platform/devices/1802a000.hdmi/debug_log_onoff
+
+hdcp on,/home/ftp/HDMI_KEY/empty_hdcp_CNX.key
+hdcp on,/home/ftp/HDMI_KEY/empty_hdcp_ACS.key
+hdcp on,/home/ftp/HDMI_KEY/hdcp_sw_key.bin
+
+
+[proxy]
+10.198.193.36
+3128
+wp.alitech.com
+
+[arc diff for encoding GBK ][ UTF-8 ]
+arc diff --encoding GBK 
+
+[arc diff for modify comment before git push]
+arc diff --create
+
+
+[制式]
+
+										0: PAL   <----- 576i@50HZ
+                                        1: PAL_N <------ 576i@50HZ
+                                        2: PAL_NC <----- 576i@50HZ
+                                        3: PAL_M <----------- 480i@60HZ
+                                        4: PAL_60 <--------- 480i@60HZ
+                                        5: NTSC   <---------------- 480i@60HZ
+                                        6: NTSC_443  <------------- 480i@60HZ
+                                       7: 576P
+                                       8: 480P
+                                       9: 720P50
+                                      10: 720P60
+                                      11: 1080I50
+                                      12: 1080I60
+                                      13: 1080P25
+                                      14: 1080P30
+                                      15: 1080P24
+                                      16: 1080P50
+                                      17: 1080P60
+                                      18: NTSC_J
+									  
+									  
+[ENABLE INT]
+HDMI_REG_INT_MASK  |= B_INT_CTRL_PKT_DONE;
+									  
+[關掉 INT]									  
+HDMI_REG_INT_MASK  &= ~B_INT_CTRL_PKT_DONE;		
+
+[HDMI PIC]
+SZ AE : Svin.Zhou
+ZHA: Eric.Zhou		
+
+
+
+[debug]
+Step into：單步執行（一行一行程式碼執行），如果遇到子函式，就會進入子函式，並且繼續單步執行。就是每一行需要執行的程式碼都不跳過，一行一行進行。
+
+Step over：在單步執行的時候，如果遇到子函式，並不會進入子函式，而是把子函式當做一整步執行完成，從而繼續執行函式呼叫位置下的程式碼。
+
+Step out：當單步執行到子函式內時，用Step out就可以執行完子函式餘下部分，並返回到上一層函式。
+
+需要注意的是，若在接下來的程式碼中還存在斷點時，Step over 和 Step out 不會跳過斷點，也就是斷點位置一定會“斷”。	
+
+
+[HDMI AFD]
+DE:
+afd_present 
+0 <---> 用 SW AFD
+1 <---> 用 HW ADF
+
+output_aspect_ratio 
+0 <---> 4:3
+1 <---> 16:9
+
+active_format_aspect_ratio
+--> as active format aspect ratio of AVI
+
+AVI INFO FRAME:
+aspect_ratio <----> picture aspect ratio (M0, M1)
+10 <---> 16:9
+01 <---> 4:3
+
+afd <----> Active Format Aspect Ratio (R0~R3)  
+1000 <---> same as picture aspect ratio (若 picture aspect ratio為 4:3, full, 若)
+1010 <---> 16:9 (16:9的圖，上下加黑邊, 變成 4:3)
+1001 <---> 4:3 (4:3的圖，左右加黑邊, 變成 16:9)
+
+afi_present <----> Active Format Information Present
+1: active format aspect ratio 有效
+0: active format aspect ratio 無效
+
+
+
+[GET DATA ISLAND]
+	// Get Source-Product-Desctriptor InfoFrame for Header Blocks and Payload Blocks
+	memset(&packet,0,sizeof(aui_hdmi_data_island_packet));
+	packet.packet_type = AUI_HDMI_SPD_INFOFRAME_PKT_TYPE;
+	AUI_TEST_CHECK_RTN(aui_hdmi_data_island_packet_get(hdmi_handle, &packet));
+	AUI_PRINTF("==== Get Data Island SPD InfoFrame Packet (0x%X)====\n",packet.packet_type);
+	AUI_PRINTF("HB:\n");
+	AUI_PRINTF("0x%X, 0x%X, 0x%X\n", 
+								packet.packet_header[0], packet.packet_header[1], packet.packet_header[2]);
+	AUI_PRINTF("PB:\n");
+	for(i=0;i<packet.packet_header[2]/*length*/;i++){
+		AUI_PRINTF("0x%X, ",packet.packet_payload[i]);
+		if((i%15) == 15)
+			AUI_PRINTF("\n");
+	}
+	AUI_PRINTF("\n");
+	
+	// Get Vendor-Specific InfoFrame for Header Blocks and Payload Blocks
+	memset(&packet,0,sizeof(aui_hdmi_data_island_packet));
+	packet.packet_type = AUI_HDMI_VS_INFOFRAME_PKT_TYPE;
+	AUI_TEST_CHECK_RTN(aui_hdmi_data_island_packet_get(hdmi_handle, &packet));
+	AUI_PRINTF("==== Get Data Island VS InfoFrame Packet (0x%X)====\n",packet.packet_type);
+	AUI_PRINTF("HB:\n");
+	AUI_PRINTF("0x%X, 0x%X, 0x%X\n", 
+								packet.packet_header[0], packet.packet_header[1], packet.packet_header[2]);
+	AUI_PRINTF("PB:\n");
+	for(i=0;i<packet.packet_header[2]/*length*/;i++){
+		AUI_PRINTF("0x%X, ",packet.packet_payload[i]);
+		if((i%15) == 15)
+			AUI_PRINTF("\n");
+	}
+	AUI_PRINTF("\n");
+	
+	// Get Audio InfoFrame for Header Blocks and Payload Blocks
+	memset(&packet,0,sizeof(aui_hdmi_data_island_packet));
+	packet.packet_type = AUI_HDMI_AUDIO_INFOFRAME_PKT_TYPE;
+	AUI_TEST_CHECK_RTN(aui_hdmi_data_island_packet_get(hdmi_handle, &packet));
+	AUI_PRINTF("==== Get Data Island Audio InfoFrame Packet (0x%X)====\n",packet.packet_type);
+	AUI_PRINTF("HB:\n");
+	AUI_PRINTF("0x%X, 0x%X, 0x%X\n", 
+								packet.packet_header[0], packet.packet_header[1], packet.packet_header[2]);
+	AUI_PRINTF("PB:\n");
+	for(i=0;i<packet.packet_header[2]/*length*/;i++){
+		AUI_PRINTF("0x%X, ",packet.packet_payload[i]);
+		if((i%15) == 15)
+			AUI_PRINTF("\n");
+	}
+	AUI_PRINTF("\n");	
+	
+	// Get Mpeg-Source InfoFrame for Header Blocks and Payload Blocks
+	memset(&packet,0,sizeof(aui_hdmi_data_island_packet));
+	packet.packet_type = AUI_HDMI_MPEGSOURCE_INFOFRAME_PKT_TYPE;
+	AUI_TEST_CHECK_RTN(aui_hdmi_data_island_packet_get(hdmi_handle, &packet));
+	AUI_PRINTF("==== Get Data Island Mpeg-Source InfoFrame Packet (0x%X)====\n",packet.packet_type);
+	AUI_PRINTF("HB:\n");
+	AUI_PRINTF("0x%X, 0x%X, 0x%X\n", 
+								packet.packet_header[0], packet.packet_header[1], packet.packet_header[2]);
+	AUI_PRINTF("PB:\n");
+	for(i=0;i<packet.packet_header[2]/*length*/;i++){
+		AUI_PRINTF("0x%X, ",packet.packet_payload[i]);
+		if((i%15) == 15)
+			AUI_PRINTF("\n");
+	}
+	AUI_PRINTF("\n");	
+
+	// Get Audio Clock Regeneration(N/CTS) Packet for Header Blocks and Payload Blocks
+	memset(&packet,0,sizeof(aui_hdmi_data_island_packet));
+	packet.packet_type = AUI_HDMI_ACR_PKT_TYPE;
+	AUI_TEST_CHECK_RTN(aui_hdmi_data_island_packet_get(hdmi_handle, &packet));
+	AUI_PRINTF("==== Get Data Island ACR Packet (0x%X)====\n",packet.packet_type);
+	AUI_PRINTF("HB:\n");
+	AUI_PRINTF("0x%X, 0x%X, 0x%X\n", 
+								packet.packet_header[0], packet.packet_header[1], packet.packet_header[2]);
+	AUI_PRINTF("PB:\n");
+	for(i=0;i<packet.packet_header[2]/*length*/;i++){
+		AUI_PRINTF("0x%X, ",packet.packet_payload[i]);
+		if((i%15) == 15)
+			AUI_PRINTF("\n");
+	}
+	AUI_PRINTF("\n");
+	
+	// Get General Control Packet for Header Blocks and Payload Blocks
+	memset(&packet,0,sizeof(aui_hdmi_data_island_packet));
+	packet.packet_type = AUI_HDMI_GENERAL_CONTROL_PKT_TYPE;
+	AUI_TEST_CHECK_RTN(aui_hdmi_data_island_packet_get(hdmi_handle, &packet));
+	AUI_PRINTF("==== Get Data Island GCP Packet (0x%X)====\n",packet.packet_type);
+	AUI_PRINTF("HB:\n");
+	AUI_PRINTF("0x%X, 0x%X, 0x%X\n", 
+								packet.packet_header[0], packet.packet_header[1], packet.packet_header[2]);
+	AUI_PRINTF("PB:\n");
+	for(i=0;i<packet.packet_header[2]/*length*/;i++){
+		AUI_PRINTF("0x%X, ",packet.packet_payload[i]);
+		if((i%15) == 15)
+			AUI_PRINTF("\n");
+	}
+	AUI_PRINTF("\n");
+	
+	// Get Audio Content Protection Packet for Header Blocks and Payload Blocks
+	memset(&packet,0,sizeof(aui_hdmi_data_island_packet));
+	packet.packet_type = AUI_HDMI_ACP_PKT_TYPE;
+	AUI_TEST_CHECK_RTN(aui_hdmi_data_island_packet_get(hdmi_handle, &packet));
+	AUI_PRINTF("==== Get Data Island ACP Packet (0x%X)====\n",packet.packet_type);
+	AUI_PRINTF("HB:\n");
+	AUI_PRINTF("0x%X, 0x%X, 0x%X\n", 
+								packet.packet_header[0], packet.packet_header[1], packet.packet_header[2]);
+	AUI_PRINTF("PB:\n");
+	for(i=0;i<packet.packet_header[2]/*length*/;i++){
+		AUI_PRINTF("0x%X, ",packet.packet_payload[i]);
+		if((i%15) == 15)
+			AUI_PRINTF("\n");
+	}
+	AUI_PRINTF("\n");
+	
+	// Get ISRC1 Packet for Header Blocks and Payload Blocks
+	memset(&packet,0,sizeof(aui_hdmi_data_island_packet));
+	packet.packet_type = AUI_HDMI_ISRC1_PKT_TYPE;
+	AUI_TEST_CHECK_RTN(aui_hdmi_data_island_packet_get(hdmi_handle, &packet));
+	AUI_PRINTF("==== Get Data Island ISRC1 Packet (0x%X)====\n",packet.packet_type);
+	AUI_PRINTF("HB:\n");
+	AUI_PRINTF("0x%X, 0x%X, 0x%X\n", 
+								packet.packet_header[0], packet.packet_header[1], packet.packet_header[2]);
+	AUI_PRINTF("PB:\n");
+	for(i=0;i<packet.packet_header[2]/*length*/;i++){
+		AUI_PRINTF("0x%X, ",packet.packet_payload[i]);
+		if((i%15) == 15)
+			AUI_PRINTF("\n");
+	}
+	AUI_PRINTF("\n");
+	
+	// Get ISRC2 Packet for Header Blocks and Payload Blocks
+	memset(&packet,0,sizeof(aui_hdmi_data_island_packet));
+	packet.packet_type = AUI_HDMI_ISRC2_PKT_TYPE;
+	AUI_TEST_CHECK_RTN(aui_hdmi_data_island_packet_get(hdmi_handle, &packet));
+	AUI_PRINTF("==== Get Data Island ISRC2 Packet (0x%X)====\n",packet.packet_type);
+	AUI_PRINTF("HB:\n");
+	AUI_PRINTF("0x%X, 0x%X, 0x%X\n", 
+								packet.packet_header[0], packet.packet_header[1], packet.packet_header[2]);
+	AUI_PRINTF("PB:\n");
+	for(i=0;i<packet.packet_header[2]/*length*/;i++){
+		AUI_PRINTF("0x%X, ",packet.packet_payload[i]);
+		if((i%15) == 15)
+			AUI_PRINTF("\n");
+	}
+	AUI_PRINTF("\n");
+	
+	// Get DRM InfoFrame for Header Blocks and Payload Blocks
+	memset(&packet,0,sizeof(aui_hdmi_data_island_packet));
+	packet.packet_type = AUI_HDMI_DRM_INFOFRAME_PKT_TYPE;
+	AUI_TEST_CHECK_RTN(aui_hdmi_data_island_packet_get(hdmi_handle, &packet));
+	AUI_PRINTF("==== Get Data Island DRAM InfoFrame Packet (0x%X)====\n",packet.packet_type);
+	AUI_PRINTF("HB:\n");
+	AUI_PRINTF("0x%X, 0x%X, 0x%X\n", 
+								packet.packet_header[0], packet.packet_header[1], packet.packet_header[2]);
+	AUI_PRINTF("PB:\n");
+	for(i=0;i<packet.packet_header[2]/*length*/;i++){
+		AUI_PRINTF("0x%X, ",packet.packet_payload[i]);
+		if((i%15) == 15)
+			AUI_PRINTF("\n");
+	}
+	AUI_PRINTF("\n");
+
+[Linux kernel coding style]
+find drivers/alidrivers/modules/alihdmi/ -name "*.h" | xargs  scripts/checkpatch.pl -f
+find drivers/alidrivers/modules/alihdmi/ -name "*.c" | xargs  scripts/checkpatch.pl -f
+find drivers/alidrivers/include/ -name "hdmi_io_common.h" | xargs  scripts/checkpatch.pl -f
+
+
+[C3821B command]
+make path_t2 config_3821b new sdk_clean sdk product_7z
+make config_3821b sdk product_7z
+
+
+[JEFF U5 comment]
+http://project.alitech.com/issues/137352
+http://project.alitech.com/issues/125921
+				  
+[aui_test 常用 command]
+play 0,1,47400,6875,2001,2002,2001,1,2,0
+play 0,0,10750,27500,2001,2002,2001,1,2,0
+play 0,0,10750,27500,34,33,34,0,3,0
+play 0,1,66600,6875,851,852,851,1,3,0
+
+hdcp on,/mnt/uda1/hdcp_unify_sw_key.bin
+hdcp on,/mnt/uda1/empty_hdcp_ACS.key
+hdcp on,/mnt/uda1/empty_hdcp_CNX.key
+hdcp on,/mnt/uda1/hdcp22_sw_key.bin
+hdcp on,/mnt/uda1/hdcp22_ce_key.bin
+hdcp on,/mnt/uda1/123
+hdcp_err_mw on
+hdcp_error_handle on
+log all,DBG			
+
+[redmine blank]
+%20	  
+
+[燒錄OTP步驟]
+1.連上ICE開機
+2.consol開啟
+3.WinGDB ICE init
+4.ICE Download D:\P4\IC_Support\OTP\C3711C\KIS__Mapping_Table_Conax_CL 檔案類型Elf File(*.ini) EX: M3711C-ANACD70-A1AGCX
+5.run
+6.Mst Output顯示--------Press 'y' to Start OTP Programming From UART Window!!!--------
+7.consol按Y
+8.consol按D
+9.關掉WINGDB
+
+
+[DE send CALLBACK to HDMI]
+play 0,0,11250,27500,120,131,120,1,14,0
+play 0,0,11450,27500,273,274,273,1,14,0
+echo 1 > /sys/bus/platform/devices/1802a000.hdmi/debug_log_onoff 
+
+
+<see> [print_de2hdmi_info]: [327] av_chg_ste: 6
+<see> [print_de2hdmi_info]: [328] tv_mode: 13, 1920x1080,
+<see> [print_de2hdmi_info]: [329] format: 3
+<see> [print_de2hdmi_info]: [330] scan_mode: TRUE
+<see> [print_de2hdmi_info]: [331] afd_pres: FALSE
+<see> [print_de2hdmi_info]: [332] output_aspect_ratio: 0
+<see> [print_de2hdmi_info]: [333] active_format_aspect_ratio: 0
+<see> [print_de2hdmi_info]: [334] DRM_pres: 0, colour_pres: 0, alternative_trans_pres: 0
+<see> [print_de2hdmi_info]: [359] depth_pres: 0, bit_depth: 8, dc: 0,
+<see> [set_video_info_to_hdmi]: [951] CLK_CHG_DONE | AV_INFO_CHG, 3
+
+12: 1080I60
+<see> [print_de2hdmi_info]: [327] av_chg_ste: 6
+<see> [print_de2hdmi_info]: [328] tv_mode: 11, 1920x1080,  <---------------------- key
+<see> [print_de2hdmi_info]: [329] format: 3
+<see> [print_de2hdmi_info]: [330] scan_mode: FALSE   <---------------------------- key
+<see> [print_de2hdmi_info]: [331] afd_pres: FALSE
+<see> [print_de2hdmi_info]: [332] output_aspect_ratio: 0
+<see> [print_de2hdmi_info]: [333] active_format_aspect_ratio: 0
+<see> [print_de2hdmi_info]: [334] DRM_pres: 0, colour_pres: 0, alternative_trans_pres: 0
+<see> [print_de2hdmi_info]: [359] depth_pres: 0, bit_depth: 8, dc: 0,
+
+14: 1080P30
+<see> [print_de2hdmi_info]: [327] av_chg_ste: 6
+<see> [print_de2hdmi_info]: [328] tv_mode: 11, 1920x1080,    <---------------------- key
+<see> [print_de2hdmi_info]: [329] format: 3
+<see> [print_de2hdmi_info]: [330] scan_mode: TRUE            <---------------------- key
+<see> [print_de2hdmi_info]: [331] afd_pres: FALSE
+<see> [print_de2hdmi_info]: [332] output_aspect_ratio: 0
+<see> [print_de2hdmi_info]: [333] active_format_aspect_ratio: 0
+<see> [print_de2hdmi_info]: [334] DRM_pres: 0, colour_pres: 0, alternative_trans_pres: 0
+<see> [print_de2hdmi_info]: [359] depth_pres: 0, bit_depth: 8, dc: 0,
+<see> [set_video_info_to_hdmi]: [951] CLK_CHG_DONE | AV_INFO_CHG, 3
+
+page 166
+
+DE:
+afd_present 
+0 <---> 用 SW AFD
+1 <---> 用 HW ADF
+
+output_aspect_ratio 
+0 <---> 4:3
+1 <---> 16:9
+
+active_format_aspect_ratio
+--> as active format aspect ratio of AVI
+
+AVI INFO FRAME:
+aspect_ratio <----> picture aspect ratio (M0, M1)
+10 <---> 16:9
+01 <---> 4:3
+
+afd <----> Active Format Aspect Ratio (R0~R3)  
+1000 <---> same as picture aspect ratio (若 picture aspect ratio為 4:3, full, 若)
+1010 <---> 16:9 (16:9的圖，上下加黑邊, 變成 4:3)
+1001 <---> 4:3 (4:3的圖，左右加黑邊, 變成 16:9)
+
+afi_present <----> Active Format Information Present
+1: active format aspect ratio 有效
+0: active format aspect ratio 無效
+
+
+
+[register design memo]
+Note：寄存器内容方面的几点注意：
+	 1、内部寄存器开关的写法最好能够统一，不要on/off/enable/disable经常变化。
+	 2、写1清零同一般的写寄存器用法不太一致，建议一定要重点标出来。
+	 3、reset的使用通常在IC内部是0做reset，1释放reset，也即是1时IP可以开始正常工作了，但是软件中正好相反，通常1表示做reset，0表示释放，IC正常工作，请设计者务必描写清楚，保持和软件用法一致。
+	 4、clock gating 寄存器的含义一般是1 表示gate enable，即停止clock，无法工作，0 表示gate disable，及不进行clock gating动作，clock会放出来，正常工作， 软件如果不希望该IP工作，就可以写1来关掉IP的clock。希望大家内部能够统一。
+	 5、idle和busy的状态，建议使用busy，一般1表示busy，0表示idle，如果使用idle作为状态，则1应该表示idle，0表示busy，这个不太符合正常的思维模式。
+	 6、经常被改动的寄存器最好不要同不经常改动的寄存器放到一个32bit中。
+	 7、控制开关的寄存器最好能够单独放到一个32bit寄存器中。
+	 8、寄存器列表建议按照DW（32bit）为单元分开列出。
+
+[disassembly]
+ /opt/mips-sde-elf-4.7.3/bin/mips-sde-elf-objdump -D Sabbat_s3507.out > 123
+
+
+
+
+[pixel clock calculation]
+1920x1080p/60hz = total pixel：2200，total line：1125，filed rate：60Hz = PCLK = 2200*1125*60 = 148.5MHz
+1280x720p/60hz = total pixel：1650，total line：750，filed rate：60Hz = PCLK = 1650*751*60 = 74.25MHz；
+3840x2160p/60hz YCC444 = total pixel：4400，total line：2250，filed rate：60Hz = PCLK = 4400*2250*60 = 594MHz；
+
+
+
+[linker file]
+VMA: virtual memory address  in RAM (程式碼執行的位址)
+LMA: load memory address in ROM/Flash (程式碼保存的位置)
+
+
+.data : AT (_sidata)
+{
+  _sdata = .;
+  *(.data)        /* Initialized data */
+  *(.data*)
+  _edata = .;
+} >RAM
+
+.data : AT (_sidata) <-------------- .data的LMA 是_sidata
+
+[compile 20.x ALIBOOT C3505]
+DEBUG:
+./cust_release_3505_as_v_p.sh;./build_all_3505_bl_as_v_p.sh;cp img/bloader3_3505_sc15_logo_vmx_128M_dbg.abs /tpsa112/usrhome/weishun.chen/work/ali/TDS/TMP/FOR_lily/M3728_vmx_ddk_release_combo_3505/vmx_ddk_release_combo_3505/prj/app/demo/combo/sabbat_dual/bloader3_3505_sc15_logo_vmx_128M.abs
+
+NONE-DEBUG:
+./cust_release_3505_as_v_p.sh;./build_all_3505_bl_as_v_p.sh;cp img/bloader3_3505_sc15_logo_vmx_128M.abs /tpsa112/usrhome/weishun.chen/work/ali/TDS/TMP/FOR_lily/M3728_vmx_ddk_release_combo_3505/vmx_ddk_release_combo_3505/prj/app/demo/combo/sabbat_dual/bloader3_3505_sc15_logo_vmx_128M.abs
+
+usb_ejtag_read_DR(EJTAG_CTRL_IR,&read_ejtag,cpu_access_flg); <--- 0x00000000
+usb_ejtag_write_DR(0x02, 0x00, first_core_sel);
+usb_ejtag_read_DR(EJTAG_CTRL_IR,&read_ejtag,cpu_access_flg); <--- 0x80600000
+usb_ejtag_write_DR(0x02, 0x05, first_core_sel);
+usb_ejtag_read_DR(EJTAG_CTRL_IR,&read_ejtag,cpu_access_flg); <--- 0x0060c000
+
+
+[MIPS register]
+EJTAG control register: DATA register for TAP
+debug register: CP0 register
+debug control register: debug register segment
+
+
+[YUV444, YUV422 排列組合]
+https://blog.csdn.net/caibaihui/article/details/8828604
+https://blog.csdn.net/qq_41468222/article/details/111031135
+
+[IRD UPGRADE]
+udhcpc;mount -t nfs -o nolock 192.168.201.13:/tpsa132/usrhome/weishun.chen/work/ali/linux_10.x_M3538_IRD_20221123/output_upg/images_upg/dvtsuit/DVT_FILES /mnt/nfs
+
+
+mkdir /mnt/nfs;chmod 777 /mnt/nfs;udhcpc;mount -t nfs -o nolock 192.168.201.13:/tpsa132/usrhome/weishun.chen/work/ali/nfs /mnt/nfs
+
+cp /mnt/nfs/M3538_IRD_DVTSUIT_FILE/keys/MANKEY.CD5 /mnt/usb/sda1/ALi_update.CD5
+cp /mnt/nfs/M3538_IRD_DVTSUIT_FILE/keys/DEVKEY.KD5 /mnt/usb/sda1/ALi_update.CD5
+cp /mnt/nfs/M3538_IRD_DVTSUIT_FILE/VAR_UPD.VD5 /mnt/usb/sda1/ALi_update.CD5
+cp /mnt/nfs/M3538_IRD_DVTSUIT_FILE/WORK005.CD5 /mnt/usb/sda1/ALi_update.CD5
+
+
+[ALICI modify MAC]
+flash -> 9 deadbeef0106
+
+
+[強制 DD/DD+]
+see\src\lld\deca\m36f\deca_m36_common.c 里面的dll_valid = 0改成dll_valid = 1就OK了
+
+[AUDIO MUTE] 硬件修改
+http://project.alitech.com/issues/160035
+
+
+[Updater]
+File=updater_3507_ice.abs
+Addr=0xa7fbf000
+
+[Updater]
+File=updater_3507_ice_a7ffc000.abs
+
+[enable Linux HDMI LOG]
+echo 1 > /sys/bus/platform/devices/1802a000.hdmi/debug_log_onoff
+echo 0 > /sys/bus/platform/devices/1802a000.hdmi/debug_log_onoff
+
+[AUDIO redmine]
+BSOUT:
+http://project.alitech.com/issues/151474
+PCM:
+http://project.alitech.com/issues/154514
+
+
+
+[Linux DE boot parameter config]
+fw_setenv TV_system 2;fw_setenv progressive 0 
+
+[2008 stream file]
+play 0,0,11250,27500,2001,2002,2001,1,2,0
+play 0,0,11050,27500,2001,2002,2001,1,2,0
+play 0,1,66600,6875,2001,2002,2001,1,2,0
+
+[AC3]
+play 0,0,11050,27500,851,852,851,1,3,0
+
+[USB]
+USB CDC (ECM, NCM, ACM, OBEX) / USBnet - Jungo
+
+
+hdcp_err_mw on
+hdcp_error_handle on
+hdcp on,/mnt/usb/sda1/hdcp_unify_sw_key.bin
+
+[alisee enable printf]
+see/src/see/m36f/sys_config_3602.h
+
+[linux solution for meminfo enable]
+1. make menuconfig 
+Target options > Trace Secure Software > *Display Meminfo in SEE
+
+2. 
+make linux-reconfigure alisee-reconfigure all
+
+3. 
+burn it
+
+4. 
+mount -t debugfs none /sys/kernel/debug
+cd /sys/kernel/debug/alilog/
+echo 7 > set_see_level
+while true;do cat /proc/alilog ;usleep 100 ;done &
+
+
+[TDS compiled command for F6C]
+make path config_3507c new sdk_clean sdk product_7z
+[TDS compiled command for F6P]
+make path config_3507p new sdk_clean sdk product_7z
+ make path aui_sync_3507p
+make path config_3507p new sdk_clean sdk aui product_7z
+make defcfg_c3507c_as_c
+
+make path_t2 config_3711c new sdk_clean sdk product_7z
+
+
+[MCA NFS command]
+mount -t nfs -o nolock 192.168.201.11:/tpsa112/usrhome/weishun.chen/work/ali/8.7.2.13_patchA_ird_mw_v35_20230818/output/target/usr/bin /usr/bin
+mount -t nfs -o nolock 192.168.201.11:/tpsa112/usrhome/weishun.chen/work/ali/8.7.2.13_patchA_ird_mw_v35_20230818/output/target/usr/lib /usr/lib
+
+
+[切制式API]
+    vpo_tvsys_ex(
+        (struct vpo_device *)dev_get_by_id(HLD_DEV_TYPE_DIS, 0),
+        tvsys,
+        bprogressive);
+
+
+
+[watchdog]
+B8018500
+
+[elf debug]
+1. readelf -a a.out
+2. objdump -D a.out
+3. objdump -h a.out
+4. ld -T test.ld main.o
+5. ld -T test.ld main.o -Map a.map
+6. gcc main.c -o a.out -Wl,-Map,a.map
+
+[how to I show a linker script]
+ld --verbose
+
+
+[find + grep]
+grep -l "un" $(find -name Makefile)
+
+
+[Kconfig]
+在Kconfig文件中：
+
+config A
+    depends on B
+    select C
+它的含义是：CONFIG_A配置与否，取决于CONFIG_B是否配置。一旦CONFIG_A配置了，CONFIG_C也自动配置了。
+
+reference from:
+https://nanxiao.me/linux-kernel-note-59-kconfig-depends-on-select/
+
+[KDB]
+echo "ttyS0,115200" > /sys/module/kgdboc/parameters/kgdboc
+echo g > /proc/sysrq-trigger
+
+
+[remote gdb]
+fedora server ----- run gdb (採用 tool-chain-gdb, ex: mips-mti-linux-gnu-gdb)
+demo board ------- run gdbserver (採用 tool-chan 編譯完的gdbserver, ex: mips-mti-linux-gnu-gcc 編譯的)
+
+CODE --- 
+#include <stdio.h>
+
+int main()
+{
+        printf("hello world\n");
+        while(1){
+                sleep(3);
+        }
+        return 0;
+}
+
+a,out --- /tpsa132/usrhome/weishun.chen/work/ali/linux_10.x_M3538P_ACS_20240520/output/host/bin/mips-mti-linux-gnu-gcc -g tets.c
+
+flow steps:
+
+<target: demo board>
+mkdir -p /mnt/nfs;mount -t nfs -o nolock 192.168.201.13:/tpsa132/usrhome/weishun.chen/work/ali/nfs /mnt/nfs
+cd /mnt/nfs
+gdbserver 192.168.201.13:2000 ./a.out
+
+<host: fedora server>
+/tpsa132/usrhome/weishun.chen/work/ali/linux_10.x_M3538P_ACS_20240520/output/host/bin/mips-mti-linux-gnu-gdb
+target remote 10.198.194.206:2000
+b main
+b test.c:7
+c
+
+
+[hexdump]
+hexdump -e '16/1 "%02X " "  |  "' -e '16/1 "%_p" "\n"' 123
+

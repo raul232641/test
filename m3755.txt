@@ -1,0 +1,225 @@
+ALIabc123
+ALI123abc
+
+nick.chiu.1020@gmail.com
+huaweiddkpswd2345
+
+070
+帳號 07010157120  
+密碼 2220@ali
+
+
+de:ad:be:ef:01:06
+00:90:E6:00:00:05
+00:90:e6:00:00:05
+
+ifconfig eth0 down
+ifconfig eth0 hw ether de:ad:be:ef:01:06
+ifconfig eth0 hw ether 00:90:E6:00:00:05
+ifconfig eth0 up
+udhcpc
+
+ifconfig eth1 down
+ifconfig eth1 hw ether 00:90:E6:00:00:05
+ifconfig eth1 up 
+udhcpc -i eth1
+
+git pull origin 7.2.0.21_Android8
+
+./adb connect 10.198.194.206:5555
+./adb -s 10.198.194.206:5555 root
+./adb connect 10.198.194.206:5555
+./adb -s 10.198.194.206:5555 remount
+./adb -s 10.198.194.206:5555 push busybox-armv7l /data/bin
+./adb -s 10.198.194.206:5555 install youtube.tv_2.02.08-20208320.apk
+
+alias ls='ls --color'
+export PATH=$PATH:/data/bin
+./adb -s 10.198.194.206:5555 push /tpsa112/usrhome/weishun.chen/work/ali/AOSP_ROOT_20180420/out/target/product/m3755/system/lib/liblog.so /system/lib
+./adb -s 10.198.194.206:5555 pull /data/media/0/Download/123.txt ../
+
+setprop ctl.restart zygote
+ 
+
+./adb -s 10.198.194.206:5555 push /tpsa112/usrhome/weishun.chen/work/ali/AOSP_ROOT_20180524/out/target/product/m3755/system/lib/libmediaplayerservice.so  /system/lib
+
+
+
+\\alinet\sh\STB\STB_SW\N1000\management\N1200\training\WeiShun‬
+\\alinet\sh\STB\STB_SW\N1000\projects\Android7\study\S33\by name
+
+stop media;start media;logcat -c ;rm tmp.txt;logcat -f tmp.txt
+logcat -c ;rm tmp.txt;logcat -f tmp.txt
+
+stop audioserver;logcat -c;start audioserver;rm tmp.txt;logcat -f tmp.txt
+
+
+stop media;stop audioserver;logcat -c;start media;start audioserver;rm tmp.txt;logcat -f tmp.txt
+
+ALOGV("open rtp_data file failed2 .... %s",strerror(errno));
+
+ALOGV("[%s][%d]",__FUNCTION__,__LINE__); // RAUL
+ALOGV("");
+
+ALOGE("[%s][%d] RAUL I'm here ..........",__FUNCTION__,__LINE__); // RAUL
+
+fprintf(stderr,"[%s][%d] RAUL\n",__FUNCTION__,__LINE__); // RAUL
+
+setenforce 0
+getenforce
+
+-DLOG_NDEBUG=0
+
+
+2074 --- IT extension
+
+
+aosp_sync.sh -b android-8.0.0_r4_m3755_ali
+
+repo sync -j16 -c
+repo sync -j16 -f -c 
+repo sync -j16
+
+
+git clone -b android-8.0.0_r4-s3922c git://10.41.150.236/aosp/develop/platform/frameworks/av 
+git push origin android-8.0.0_r4-s3922c 
+
+
+git clone -b android-8.0.0_r4 git://10.41.150.236/aosp/develop/platform/frameworks/av
+
+
+
+// clone local repo
+git clone /tpsa112/usrhome/weishun.chen/work/ali/AOSP_ROOT_20180524/frameworks/av ./av3
+
+// for fetch
+git remote set-url origin git://10.41.150.236/aosp/develop/platform/frameworks/av
+
+// for push
+git remote set-url --push origin git@10.41.150.236:aosp/develop/platform/frameworks/av
+
+// update code + update repo from remote repo
+git pull --rebase
+
+
+git clone -b android-8.0.0_r4 git://10.41.150.236/aosp/develop/platform/frameworks/av 
+git status
+git add .
+git commit -m "Support MP3 format for RTSP."
+git push origin android-8.0.0_r4
+
+git checkout 4.0.5 -b 6.10LTS-COSHIP_m3728_6.10.0.13
+git push origin 6.10LTS-COSHIP_m3728_6.10.0.13
+
+[修改comment]
+git commit --amend
+
+git tag tag_20190222
+git push origin tag_20190222
+
+// delete remote tag 
+git push origin --delete tag 標籤名
+
+git config --global user.name "weishun.chen"
+git config --global user.email "weishun.chen@alitech.com"
+git remote set-url origin git://192.168.201.1/aosp/develop/platform/frameworks/av
+
+git remote -v
+
+git branch -a  --contains=BL6.11-20190322
+
+git status
+
+arc diff
+-summary: redmine: #107495
+-test plan: local build and test pass
+-Reviewers: york.wang
+git push
+
+## git add .  還原
+git reset HEAD test1.java
+git reset HEAD .
+
+##退版本
+git reset --hard 139dcfaa558e3276b30b6b2e5cbbb9c00bbdca96 
+
+## git commit message 修改
+git commit --amend
+
+## 列出修改檔案中有加入或移除指定字串的提交。
+git log -S durationFromPTS
+
+## create new branch (copy master branch to new branch and push new branch to remote server)
+git checkout master
+git branch new_master
+git checkout new_master
+git push -u origin new_master
+OR
+git checkout master
+git checkout -b new_master
+git push -u origin new_master
+
+\\alinet\sh\STB\STB_SW\N1000\management\N1200\projects\Android\Media
+\\alinet\sh\STB\STB_SW\N1000\projects\S3922\Share\docs
+
+
+system/libhidl/transport/allocator/1.0/default
+system/libhidl/transport/memory/1.0/default
+
+printf( "[%s][%d]\n",__FUNCTION__, __LINE__ );// RAUL
+
+printf("\033[1;33m" "[%s][%d]\n" "\033[m",__FUNCTION__, __LINE__ );// RAUL
+
+yellow
+fprintf(stderr, "\033[1;33m" "[%s][%d]\n" "\033[m",__FUNCTION__, __LINE__ );// RAUL
+fprintf(stderr, "\033[1;33m" "\n" "\033[m");// RAUL
+libc_printf("\033[1;33m" "[%s][%d]\n" "\033[m",__FUNCTION__, __LINE__ );// RAUL
+libc_printf("[%s][%d]\n",__FUNCTION__, __LINE__ );// RAUL
+
+green
+fprintf(stderr, "\033[0;32;32m" "[%s][%d]\n" "\033[m",__FUNCTION__, __LINE__ );// RAUL
+fprintf(stderr, "\033[0;32;32m" "\n" "\033[m");// RAUL
+libc_printf("\033[0;32;32m" "[%s][%d]\n" "\033[m",__FUNCTION__, __LINE__ );// RAUL
+debug("\033[0;32;32m" "[%s][%d]\n" "\033[m",__FUNCTION__, __LINE__ );// RAUL
+
+blue
+fprintf(stderr, "\033[1;34m" "[%s][%d]\n" "\033[m",__FUNCTION__, __LINE__ );// RAUL
+fprintf(stderr, "\033[1;34m" "\n" "\033[m"); // RAUL
+libc_printf("\033[1;34m" "[%s][%d]\n" "\033[m",__FUNCTION__, __LINE__ );// RAUL
+
+BROWN 
+fprintf(stderr, "\033[0;33m" "[%s][%d]\n" "\033[m",__FUNCTION__, __LINE__ );// RAUL
+fprintf(stderr, "\033[0;33m" "\n" "\033[m"); // RAUL
+libc_printf("\033[0;33m" "[%s][%d]\n" "\033[m",__FUNCTION__, __LINE__ );// RAUL
+
+PURPLE  
+fprintf(stderr, "\033[0;35m" "[%s][%d]\n" "\033[m",__FUNCTION__, __LINE__ );// RAUL
+fprintf(stderr, "\033[0;35m" "\n" "\033[m"); // RAUL
+libc_printf("\033[0;35m" "[%s][%d]\n" "\033[m",__FUNCTION__, __LINE__ );// RAUL
+
+printk(KERN_ERR "[%s][%d]\n",__FUNCTION__,__LINE__); // RAUL
+#define __E0(fmt, args...) do{ fprintf(stderr, "\033[1;33m""[%s][%d] "fmt"\n""\033[m", __FUNCTION__, __LINE__ , ##args);}while(0)
+
+	// ## modify by Raul 2018.5.30 for supporting rtsp mp3 format
+	
+fprintf(inFile, "\033[1;33m" "[%s][%d]\n" "\033[m",__FUNCTION__, __LINE__ ); //RAUL
+
+fprintf(stderr, "[%s][%d]\n",__FUNCTION__, __LINE__ );// RAUL
+
+libc_printf("%s:%d:\n",__func__, __LINE__);
+
+lshal - list hwbinder/binder 
+
+setprop ctl.restart zygote
+
+Now extract the audio and video and audio contents as below:
+$ ffmpeg -i input.file -vcodec copy -an video_only.extn
+$ ffmpeg -i input.file -acodec copy -vn audio_only.extn
+
+
+
+ps -ef | grep "./main" | grep -v grep | awk '{print $2}' | xargs pmap -d (查看writable/private)
+ps aux | grep main (簡易查看VSZ,RSS)
+
+
+strerror(errno)
